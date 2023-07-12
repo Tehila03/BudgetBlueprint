@@ -1,24 +1,26 @@
-const SearchHandler = async (event) => {
+// const newFormHandler = async (event) => {
+//   event.preventDefault();
 
-  const city = document.querySelector('#searchinput').value.trim();
+//   const name = document.querySelector('#project-name').value.trim();
+//   const needed_funding = document.querySelector('#project-funding').value.trim();
+//   const description = document.querySelector('#project-desc').value.trim();
 
-  if (city) {
-    const response = await fetch(`/api/search/${city}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+//   if (name && needed_funding && description) {
+//     const response = await fetch(`/api/projects`, {
+//       method: 'POST',
+//       body: JSON.stringify({ name, needed_funding, description }),
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//     });
 
-    if (response.ok) {
-    //   document.location.replace('/profile');
-
-    // attach response to handlebars**
-    } else {
-      alert('No search results.');
-    }
-  }
-};
+//     if (response.ok) {
+//       document.location.replace('/profile');
+//     } else {
+//       alert('Failed to create project');
+//     }
+//   }
+// };
 
 // const delButtonHandler = async (event) => {
 //   if (event.target.hasAttribute('data-id')) {
@@ -36,9 +38,9 @@ const SearchHandler = async (event) => {
 //   }
 // };
 
-document
-  .querySelector('#searchbtn')
-  .addEventListener('click', SearchHandler);
+// document
+//   .querySelector('.new-project-form')
+//   .addEventListener('submit', newFormHandler);
 
 // document
 //   .querySelector('.project-list')
