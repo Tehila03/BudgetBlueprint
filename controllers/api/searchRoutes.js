@@ -3,18 +3,43 @@ const { Router } = require('express');
 
 const router = Router();
 
-router.get('/:city', async (req, res) => {
-  const cityName = req.params.city;
-  const url = 'https://cities-cost-of-living1.p.rapidapi.com/get_city_by_name';
+router.get('/', async (req, res) => {
+  const url = 'https://cities-cost-of-living1.p.rapidapi.com/get_cities_list';
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': 'b7f78328f1msh650327bb4a94881p13a6d2jsn2e27c4098761',
+      'X-RapidAPI-Host': 'cities-cost-of-living1.p.rapidapi.com',
+    },
+  };
+
+  try {
+    const response = await fetch(url, options);
+    const result = await response.text();
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+
+  res.render('homepage', {
+    // Pass any data needed for rendering the homepage
+  });
+});
+
+router.post('/', async (req, res) => {
+  const { cities, currencies } = req.body;
+
+  const url = 'https://cities-cost-of-living1.p.rapidapi.com/get_cities_details_by_name';
   const options = {
     method: 'POST',
     headers: {
-      'content-type': 'application/x-www-form-urlencoded',
-      'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
+      'Content-Type': 'application/json',
+      'X-RapidAPI-Key': 'b7f78328f1msh650327bb4a94881p13a6d2jsn2e27c4098761',
       'X-RapidAPI-Host': 'cities-cost-of-living1.p.rapidapi.com',
     },
-    body: new URLSearchParams({
-      name: cityName,
+    body: JSON.stringify({
+      cities,
+      currencies,
     }),
   };
 
@@ -22,14 +47,13 @@ router.get('/:city', async (req, res) => {
     const response = await fetch(url, options);
     const result = await response.json();
 
-    //collect user financial information
-    const userIncome = req.query.income; // Extract income from query parameter or request body
+    // Handle the result and extract the necessary data for rendering
 
-    // calculations or comparisons with the cost of living data and user's income
-
-
-    // Send the calculated data or relevant response back to the client
-    res.json({ city: cityName, costOfLivingData: result, userIncome });
+    res.render('search-results', {
+      cities,
+      currencies,
+      data: result.data,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'An error occurred' });
@@ -37,3 +61,4 @@ router.get('/:city', async (req, res) => {
 });
 
 module.exports = router;
+
