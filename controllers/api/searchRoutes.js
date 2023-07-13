@@ -1,5 +1,7 @@
-const router = require('express').Router();
-const fetch = require('node-fetch');
+const { Router } = require('express');
+
+
+const router = Router();
 
 router.get('/:city', async (req, res) => {
   const cityName = req.params.city;

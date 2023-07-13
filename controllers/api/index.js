@@ -1,8 +1,11 @@
-const router = require('express').Router();
-const userRoutes = require('./userRoutes');
+const express = require('express');
+const app = express();
 const searchRoutes = require('./searchRoutes');
 
-router.use('/users', userRoutes);
-router.use('/search', searchRoutes);
+app.use('/api', searchRoutes);
 
-module.exports = router;
+
+app.listen(3306, () => {
+  console.log('Server listening on port 3000');
+});
+

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const fetch = require('node-fetch');
+
 
 router.get('/', async (req, res) => {
   const url = 'https://cities-cost-of-living1.p.rapidapi.com/get_cities_list';
