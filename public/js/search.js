@@ -4,7 +4,7 @@ const SearchHandler = async (event) => {
   
     if (city) {
       const response = await fetch(`/api/search/${city}`, {
-        method: 'GET',
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -12,7 +12,7 @@ const SearchHandler = async (event) => {
   
       if (response.ok) {
       //   document.location.replace('/profile');
-  
+        
       // attach response to handlebars**
       } else {
         alert('No search results.');
