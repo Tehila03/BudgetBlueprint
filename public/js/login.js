@@ -15,39 +15,50 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      document.location.replace('/profile');
+      window.location.href = '/profile';
     } else {
       alert(response.statusText);
     }
   }
 };
 
-const signupFormHandler = async (event) => {
-  event.preventDefault();
+const signupButton = document.querySelector('#signup-btn');
+signupButton.addEventListener('click', () => {
+  window.location.href = '/signup'; // Redirect to the signup page
+});
 
-  const username = document.querySelector('#name-signup').value.trim();
-  const email = document.querySelector('#email-signup').value.trim();
-  const password = document.querySelector('#password-signup').value.trim();
+const loginForm = document.querySelector('.login-form');
+loginForm.addEventListener('submit', loginFormHandler);
 
-  if (username && email && password) {
-    const response = await fetch('/api/users', {
-      method: 'POST',
-      body: JSON.stringify({ username, email, password }),
-      headers: { 'Content-Type': 'application/json' },
-    });
 
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert(response.statusText);
-    }
-  }
-};
 
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
 
-document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
+// const signupFormHandler = async (event) => {
+//   event.preventDefault();
+
+//   const username = document.querySelector('#name-signup').value.trim();
+//   const email = document.querySelector('#email-signup').value.trim();
+//   const password = document.querySelector('#password-signup').value.trim();
+
+//   if (username && email && password) {
+//     const response = await fetch('/api/users', {
+//       method: 'POST',
+//       body: JSON.stringify({ username, email, password }),
+//       headers: { 'Content-Type': 'application/json' },
+//     });
+
+//     if (response.ok) {
+//       document.location.replace('/profile');
+//     } else {
+//       alert(response.statusText);
+//     }
+//   }
+// };
+
+// document
+//   .querySelector('.login-form')
+//   .addEventListener('submit', loginFormHandler);
+
+// document
+//   .querySelector('.signup-form')
+//   .addEventListener('submit', signupFormHandler);
