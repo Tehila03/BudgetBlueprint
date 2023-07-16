@@ -41,7 +41,7 @@ const withAuth = require('../utils/auth');
 //     });
 
 //     const project = projectData.get({ plain: true });
-=======
+
 
 
 //     res.render('project', {
@@ -87,6 +87,10 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 module.exports = router;
-=======
+
+
+
+
+
 
 
