@@ -1,17 +1,17 @@
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
 </head>
 
 <div class="container">
   <div class="columns">
     <div class="column">
-      <h2>Welcome, {{username}}!</h2>
+      <h2 class= "title is-2">Welcome, {{username}}!</h2>
     </div>
   </div>
 
   <div class="columns mt-4">
     <div class="column is-half">
-      <h3>Create a New Profile:</h3>
+      <h3 class="subtitle is-4">Create a New Profile:</h3>
 
       <form class="new-project-form">
         <div class="field">
@@ -39,25 +39,33 @@
         </div>
       </form>
     </div>
-
-    {{#if projects.length}}
+   {{#if projects.length}}
     <div class="column is-half">
-      <h3>Current Projects:</h3>
-
-      {{#each projects as |project|}}
-      <div class="columns mb-2">
-        <div class="column is-four-fifths">
-          <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
-        </div>
-        <div class="column">
-          <button class="button is-danger is-small" data-id="{{project.id}}">DELETE</button>
+      <div class="panel">
+        <p class="panel-heading">
+          Current Projects
+        </p>
+        <div class="panel-block">
+          {{#each projects as |project|}}
+          <div class="columns mb-2">
+            <div class="column">
+              <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
+            </div>
+          </div>
+          {{/each}}
         </div>
       </div>
-      {{/each}}
+      <div class="mt-4">
+        {{#each projects as |project|}}
+        <div class="columns mb-2">
+          <div class="column">
+            <button class="button is-danger is-small" data-id="{{project.id}}">DELETE</button>
+          </div>
+        </div>
+        {{/each}}
+      </div>
     </div>
     {{/if}}
   </div>
 </div>
-<script src="./js/profile.js"></script>
-
-
+    <script src="./js/profile.js"></script>
