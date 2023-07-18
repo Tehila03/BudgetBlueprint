@@ -16,16 +16,18 @@ const withAuth = require('../utils/auth');
 
 //     // Serialize data so the template can read it
 //     const projects = projectData.map((project) => project.get({ plain: true }));
-
 //     // Pass serialized data and session flag into template
-//     res.render('homepage', { 
-//       projects, 
-//       logged_in: req.session.logged_in 
+//     res.render('homepage', {
+//       projects,
+//       logged_in: req.session.logged_in
+
 //     });
 //   } catch (err) {
 //     res.status(500).json(err);
 //   }
 // });
+
+
 
 // router.get('/project/:id', async (req, res) => {
 //   try {
@@ -40,6 +42,8 @@ const withAuth = require('../utils/auth');
 
 //     const project = projectData.get({ plain: true });
 
+
+
 //     res.render('project', {
 //       ...project,
 //       logged_in: req.session.logged_in
@@ -48,6 +52,8 @@ const withAuth = require('../utils/auth');
 //     res.status(500).json(err);
 //   }
 // });
+
+
 
 // // Use withAuth middleware to prevent access to route
 // router.get('/profile', withAuth, async (req, res) => {
@@ -58,7 +64,9 @@ const withAuth = require('../utils/auth');
 //       include: [{ model: Project }],
 //     });
 
+
 //     const user = userData.get({ plain: true });
+
 
 //     res.render('profile', {
 //       ...user,
@@ -78,5 +86,11 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
-
 module.exports = router;
+
+
+
+
+
+
+
