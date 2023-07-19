@@ -1,48 +1,36 @@
-{{!-- <!-- Loop over each object in the projects array -->
-{{#each projects as |project| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/project/{{project.id}}">{{project.name}}</a>
-    </h2>
-    <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
-      needed!
-    </p>
-    <p>Created by {{project.user.name}} on {{format_date project.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{project.description}}
-    </p>
-  </div>
-</div>
-{{/each}} --}}
+
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
 </head>
 <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1 class="has-text-centered is-size-1">
-        <span role="img" aria-label="money">💸</span>
-        <a href="/" class="">Budget Blueprint!</a>
-      </h1>
-  
-<div class="columns">
-  <div class="column is-half">
-      <div class="field">
-  <label class="label">Search for a City!</label>
-  <div class="control">
-    <input id="searchinput" class="input is-medium" type="text" placeholder="San Francisco,CA">
-    <button class= "button is-primary" id = "searchbtn"> Search </button>
-    
+  <header class="display-flex justify-space-between align-center p-2">
+    <h1 class="has-text-centered is-size-1">
+      <span role="img" aria-label="money">💸</span>
+      <a href="/" class="">Budget Blueprint!</a>
+    </h1>
 
-<div class="column is-half">
-    <h2 class="level-item subtitle is-4 has-text-weight-semibold">Results: </h2>
+
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <div class="field">
+        <label class="label">Search for a City!</label>
+        <input id="searchinput" class="input is-medium" type="text" placeholder="San Francisco, CA">
+        <label class="label mt-4">Search for Your Future Home City!</label>
+        <input id="futureinput" class="input is-medium" type="text" placeholder="Atlantic City, NJ">
+        <button class="button is-primary" id="searchbtn">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <h2 id="results" class="level-item subtitle is-4 has-text-weight-semibold">Results:</h2>
+      <div id="result"></div>
+    </div>
+  </div>
 </div>
 
 <script src="/js/search.js"></script>
+
+            {{!-- week 6... append results to result div  --}}
