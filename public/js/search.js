@@ -1,16 +1,22 @@
 const SearchHandler = async (event) => {
 
-    const city = document.querySelector('#searchinput').value.trim();
-  
-    if (city) {
-      const response = await fetch(`/api/search/${city}`, {
+    const city1 = document.querySelector('#searchinput').value.trim();
+    const city2 = document.querySelector('#futureinput').value.trim();
+    if (city1&&city2) {
+      const response = await fetch(`/api/search`, {
         method: 'POST',
+        body: JSON.stringify({city1,city2}),
         headers: {
           'Content-Type': 'application/json',
         },
       });
   
       if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+        const result = calculateDifference(data.homeCity, data.destinationCity);
+        console.log(result);
+        let HTML = ``
       //   document.location.replace('/profile');
         
       // attach response to handlebars**
@@ -19,22 +25,13 @@ const SearchHandler = async (event) => {
       }
     }
   };
-  
-  // const delButtonHandler = async (event) => {
-  //   if (event.target.hasAttribute('data-id')) {
-  //     const id = event.target.getAttribute('data-id');
-  
-  //     const response = await fetch(`/api/projects/${id}`, {
-  //       method: 'DELETE',
-  //     });
-  
-  //     if (response.ok) {
-  //       document.location.replace('/profile');
-  //     } else {
-  //       alert('Failed to delete project');
-  //     }
-  //   }
-  // };
+  function calculateDifference(city1, city2){
+    const homeCity = city1.col_index
+    const destinationCity = city2.col_index
+    const result = ((destinationCity - homeCity)/homeCity)*100
+    return result
+  }
+ 
   
   document
     .querySelector('#searchbtn')
