@@ -2,9 +2,11 @@ const router = require('express').Router();
 const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+
 router.get("/", (req,res)=> {
   res.render("homepage")
 })
+
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
