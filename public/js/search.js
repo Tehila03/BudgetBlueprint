@@ -2,9 +2,9 @@ const SearchHandler = async (event) => {
 
     const city1 = document.querySelector('#searchinput').value.trim();
     const city2 = document.querySelector('#futureinput').value.trim();
-    if (city1&&city2) {
+    if (city1 && city2) {
       const response = await fetch(`/api/search`, {
-        method: 'POST',
+        method: 'GET',
         body: JSON.stringify({city1,city2}),
         headers: {
           'Content-Type': 'application/json',
