@@ -9,23 +9,29 @@
       <a href="/" class="">Budget Blueprint!</a>
     </h1>
 
-    <div class="columns">
-      <div class="column is-half">
-        <div class="field">
-          <label class="label">Search for a City!</label>
-          {{!-- <div class="control"> --}}
-            <input id="searchinput" class="input is-medium" type="text" placeholder="San Francisco,CA">
-            <label class="label">Search for Your Future Home City!</label>
-            <input id="futureinput" class="input is-medium" type="text" placeholder="Atlantic City,NJ">
-            <button class="button is-primary" id="searchbtn"> Search </button>
 
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <div class="field">
+        <label class="label">Search for a City!</label>
+        <input id="searchinput" class="input is-medium" type="text" placeholder="San Francisco, CA">
+        <label class="label mt-4">Search for Your Future Home City!</label>
+        <input id="futureinput" class="input is-medium" type="text" placeholder="Atlantic City, NJ">
+        <button class="button is-primary" id="searchbtn">Search</button>
+      </div>
+    </div>
+  </div>
 
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <h2 id="results" class="level-item subtitle is-4 has-text-weight-semibold">Results:</h2>
+      <div id="result"></div>
+    </div>
+  </div>
+</div>
 
-            <div class="column is-half">
-              <h2 id="results" class="level-item subtitle is-4 has-text-weight-semibold">Results: </h2>
-              <div id="result"></div>
-            </div>
+<script src="/js/search.js"></script>
 
-            <script src="/js/search.js"></script>
 
             {{!-- week 6... append results to result div  --}}
