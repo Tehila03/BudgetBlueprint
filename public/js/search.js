@@ -17,7 +17,7 @@ const SearchHandler = async (event) => {
       const result = calculateDifference(data.homeCity, data.destinationCity);
       console.log(result);
       const resultDiv = document.querySelector('#result');
-      resultDiv.innerHTML = `Based on your search, if you would like to move from your home city to a new city you would need to increase your income by ${result}% in order to sustain and match the cost of living in your new home city.`;
+      resultDiv.innerHTML = `Based on your search, if you would like to move from your home city to this new city you would need to adjust your income by ${result}% in order to sustain and live at your same level of comfort in your new home city.`;
       let HTML = ``
 
       // attach response to handlebars**
