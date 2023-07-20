@@ -1,6 +1,15 @@
+
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
 </head>
+
+<div class="flex-column justify-space-around">
+  <header class="display-flex justify-space-between align-center p-2">
+    <h1 class="has-text-centered is-size-1">
+      <span role="img" aria-label="money">💸</span>
+      <a href="/" class="">Budget Blueprint!</a>
+    </h1>
+</div>
 
 <div class="columns">
   <div class="column is-half">
@@ -10,7 +19,7 @@
       <div class="field">
         <label class="label" for="email-login">Email:</label>
         <div class="control">
-          <input class="input" type="text" id="email-login" />
+          <input class="input is-hovered is-primary" type="text" id="email-login" />
         </div>
       </div>
       <div class="field">
@@ -27,8 +36,7 @@
     </form>
   </div>
 
-
-  <div class="column is-half">
+<div class="column">
     <h2 class="level-item subtitle is-4 has-text-weight-semibold">Sign-up!</h2>
 
     <form class="signup-form">
@@ -59,6 +67,6 @@
     </form>
   </div>
 </div>
-
+{{!-- Add connection for sign up page / then back to login once form is completed --}}
 
 <script src="/js/login.js"></script>

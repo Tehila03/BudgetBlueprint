@@ -5,67 +5,72 @@
 <div class="container">
   <div class="columns">
     <div class="column">
-      <h2 class= "title is-2">Welcome, {{username}}!</h2>
+      <h2 class="title is-2">Welcome, {{username}}!</h2>
     </div>
   </div>
 
-  <div class="columns mt-4">
-    <div class="column is-half">
-      <h3 class="subtitle is-4">Create a New Profile:</h3>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  </head>
 
-      <form class="new-project-form">
-        <div class="field">
-          <label class="label" for="project-name">Project Name:</label>
-          <div class="control">
-            <input class="input" type="text" id="project-name" name="project-name" />
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  </head>
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1 class="has-text-centered is-size-1">
+        <span role="img" aria-label="money">💸</span>
+        <a href="/" class="">Budget Blueprint!</a>
+      </h1>
+      <div class="container">
+        <div class="columns">
+          <div class="column">
+            <h2 class="title is-2">Welcome, {{username}}!</h2>
           </div>
         </div>
-        <div class="field">
-          <label class="label" for="project-funding">Needed Funding ($):</label>
-          <div class="control">
-            <input class="input" type="number" id="project-funding" name="project-funding" />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label" for="project-desc">Description:</label>
-          <div class="control">
-            <textarea class="textarea" id="project-desc" name="project-desc"></textarea>
-          </div>
-        </div>
-        <div class="field">
-          <div class="control">
-            <button type="submit" class="button is-primary">Create</button>
-          </div>
-        </div>
-      </form>
-    </div>
-   {{#if projects.length}}
-    <div class="column is-half">
-      <div class="panel">
-        <p class="panel-heading">
-          Current Projects
-        </p>
-        <div class="panel-block">
-          {{#each projects as |project|}}
-          <div class="columns mb-2">
-            <div class="column">
-              <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
+      
+        <div class="columns mt-4">
+          <div class="card column is-half">
+            <div class="card">
+              <div class="card-content">
+                <div class="content">
+                  <h2> Income: </h2>
+                  <h2> City: </h2>
+                  <br>
+                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item">Save</a>
+                <a href="#" class="card-footer-item">Edit</a>
+                <a href="#" class="card-footer-item">Delete</a>
+              </footer>
             </div>
           </div>
-          {{/each}}
-        </div>
-      </div>
-      <div class="mt-4">
-        {{#each projects as |project|}}
-        <div class="columns mb-2">
-          <div class="column">
-            <button class="button is-danger is-small" data-id="{{project.id}}">DELETE</button>
+
+          <div class="column is-half">
+            <div class="columns is-centered">
+              <div class="column">
+                <div class="panel">
+                  <p class="panel-heading">
+                    Current Projects
+                  </p>
+                  <div class="panel-block">
+                    <!-- Current Projects content goes here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <div class="columns mb-2">
+                <div class="column">
+                  <button class="button is-danger is-small" data-id="{{project.id}}">DELETE</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        {{/each}}
       </div>
-    </div>
-    {{/if}}
-  </div>
-</div>
-    <script src="./js/profile.js"></script>
+
+      <script src="./js/profile.js"></script>
