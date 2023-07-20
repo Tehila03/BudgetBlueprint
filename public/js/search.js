@@ -20,6 +20,15 @@ const SearchHandler = async (event) => {
       resultDiv.innerHTML = `Based on your search, if you would like to move from your home city to your future home city you would need to adjust your income by ${result}% in order to live at your same level of comfort.`;
       let HTML = ``
 
+      const button = document.createElement('button');
+      button.textContent = 'Login or Create an Account to save your results!';
+
+      button.addEventListener('click', () => {
+        window.location.href = 'http://localhost:3001/login.html'
+      });
+
+      resultDiv.appendChild(button);
+
       // attach response to handlebars**
     } else {
       alert('No search results.');
