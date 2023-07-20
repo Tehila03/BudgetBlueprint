@@ -4,7 +4,7 @@ const SearchHandler = async (event) => {
     const city2 = document.querySelector('#futureinput').value.trim();
     if (city1 && city2) {
       const response = await fetch(`/api/search`, {
-        method: 'GET',
+        method: 'POST',
         body: JSON.stringify({city1,city2}),
         headers: {
           'Content-Type': 'application/json',
@@ -17,7 +17,6 @@ const SearchHandler = async (event) => {
         const result = calculateDifference(data.homeCity, data.destinationCity);
         console.log(result);
         let HTML = ``
-      //   document.location.replace('/profile');
         
       // attach response to handlebars**
       } else {
@@ -36,7 +35,4 @@ const SearchHandler = async (event) => {
   document
     .querySelector('#searchbtn')
     .addEventListener('click', SearchHandler);
-  
-  // document
-  //   .querySelector('.project-list')
-  //   .addEventListener('click', delButtonHandler);
+ 

@@ -28,7 +28,7 @@ signupButton.addEventListener('click', async () => {
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
-  if (email && password) {
+  if ( username && email && password) {
     // Send a POST request to the API endpoint
     const response = await fetch('/api/users', {
       method: 'POST',
