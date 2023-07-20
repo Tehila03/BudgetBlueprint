@@ -1,79 +1,45 @@
-// Fetch the user's profile data from the API endpoint
-fetch('/api/users/profile')
-  .then(response => response.json())
-  .then(data => {
-    // Pass the profile data to the Handlebars template
-    const profileTemplate = Handlebars.compile(document.getElementById('profile-template').innerHTML);
-    const profileHtml = profileTemplate(data);
+// profile.js
 
-    // Update the profile container with the rendered HTML
-    document.getElementById('profile-container').innerHTML = profileHtml;
-  })
-  .catch(error => {
-    console.error(error);
-    alert('Failed to fetch profile data.');
-  });
+// Wait for the DOM to be fully loaded before attaching event listeners
+document.addEventListener("DOMContentLoaded", function () {
+  // Get references to the DOM elements we need
+  const newProjectForm = document.querySelector(".new-project-form");
+  const projectList = document.querySelector(".panel-block");
+  const deleteButtons = document.querySelectorAll(".button.is-danger");
 
-// Function to calculate the cost of living
-const calculateCostOfLiving = async (city, income) => {
-    const url = 'https://cities-cost-of-living1.p.rapidapi.com/get_city_by_name';
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'X-RapidAPI-Key': 'b7f78328f1msh650327bb4a94881p13a6d2jsn2e27c4098761',
-        'X-RapidAPI-Host': 'cities-cost-of-living1.p.rapidapi.com',
-      },
-      body: new URLSearchParams({
-        name: city,
-      }),
-    };
-  
-    try {
-      const response = await fetch(url, options);
-      const result = await response.json();
-      // Perform calculations or comparisons with the cost of living data and user's income
-      const costOfLivingData = result.data;
-  
-      // Return the calculated data or relevant response
-      return {
-        city,
-        costOfLivingData,
-        income,
-      };
-    } catch (error) {
-      console.error(error);
-      throw new Error('An error occurred while calculating the cost of living.');
-    }
-  };
-  
-  // Event listener for the profile form submission
-  document.querySelector('.update-profile-form').addEventListener('submit', async (event) => {
+  // Function to handle form submission for creating a new project
+  function handleNewProjectFormSubmit(event) {
     event.preventDefault();
-  
-    const city = document.querySelector('#city').value.trim();
-    const income = parseInt(document.querySelector('#income').value.trim());
-    const jobTitle = document.querySelector('#job-title').value.trim();
-  
-    try {
-      // Calculate the cost of living
-      const calculatedData = await calculateCostOfLiving(city, income);
-  
-      // Update the profile with the calculated data
-      const profileTemplate = Handlebars.compile(document.getElementById('profile-template').innerHTML);
-      const profileHtml = profileTemplate({
-        username: '{{username}}', // Update with the username data
-        city: calculatedData.city,
-        income: calculatedData.income,
-        jobTitle: jobTitle,
-        projects: '{{projects}}', // Update with the projects data
-      });
-  
-      // Update the profile container with the rendered HTML
-      document.getElementById('profile-container').innerHTML = profileHtml;
-    } catch (error) {
-      console.error(error);
-      alert('Failed to update the profile.');
-    }
-  });
-  
+
+    // Get form data
+    const projectName = document.querySelector("#project-name").value;
+    const projectFunding = document.querySelector("#project-funding").value;
+    const projectDesc = document.querySelector("#project-desc").value;
+
+    // Do something with the form data (e.g., send it to the server)
+    // ...
+
+    // Clear the form fields after submission
+    newProjectForm.reset();
+  }
+
+  // Attach the form submission event listener
+  newProjectForm.addEventListener("submit", handleNewProjectFormSubmit);
+
+  // Function to handle project deletion
+  function handleProjectDeletion(event) {
+    // Get the project ID from the data attribute
+    const projectId = event.target.dataset.id;
+
+    // Do something with the project ID (e.g., send a request to delete the project)
+    // ...
+
+    // Remove the project from the UI
+    event.target.closest(".columns.mb-2").remove();
+  }
+
+  // Attach click event listeners to each delete button
+  deleteButtons.forEach((button) =>
+    button.addEventListener("click", handleProjectDeletion)
+  );
+});
