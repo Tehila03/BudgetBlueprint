@@ -2,13 +2,13 @@
 
 ## User Story
 
-```As a user, I need a financial analysis app that efficiently compares the cost of living between two cities based on my income and expenses. This app should allow me to input my income, select cities for comparison, and receive a detailed breakdown of expenses (food, transportation, housing).```
+```As a user, I need a financial analysis app that efficiently compares the cost of living between two cities based on my income.```
 
-```The app should analyze whether my income covers the expenses in each city and provide clear results to support informed decisions about relocation or travel plans.```
+```As a user, I want to input my income to a profile page and select two or more cities to compare the cost of living.The app should analyze whether my income covers the expenses in each city and provide clear results to support informed decisions about relocation or travel plans.```
 
 ```Additionally, the app should store the data analysis in my profile for easy reference and budget adjustments.```
 
-```This cost of living comparison feature empowers users to assess the affordability of different cities, make educated choices about their financial future, and enhance overall decision-making processes.```
+```I want the financial budgeting application to help me make informed decisions about my financial future by comparing the cost of living between cities and analyzing the affordability of each city based on my income with the ability to store this data to my profile.```
 
 
 ## Table of Contents
@@ -25,7 +25,7 @@ Once you arrive at (link), the Budget Blueprint App enables efficient comparison
 
 
 ## Test
-
+```npm start```
 
 ## Credits
 
@@ -38,7 +38,6 @@ Collaborators:
 
 
 ### Web APIs
-- https://rapidapi.com/hub
 - Our own API
 
 ### CSS Framework
