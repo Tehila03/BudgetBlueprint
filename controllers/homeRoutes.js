@@ -1,10 +1,8 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
-const withAuth = require('../utils/auth');
 
 
 router.get("/", (req,res)=> {
-  res.render("homepage")
+  res.render("login")
 })
 
 
@@ -17,6 +15,7 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
 module.exports = router;
 
 
