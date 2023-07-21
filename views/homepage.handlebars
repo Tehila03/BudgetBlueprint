@@ -3,11 +3,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
 </head>
 <div class="flex-column justify-space-around">
-  <header class="display-flex justify-space-between align-center p-2">
-   
 
-
-<div class="container">
+  <div class="container">
   <div class="columns is-centered">
     <div class="column is-half">
       <div class="field">
@@ -23,7 +20,12 @@
   <div class="columns is-centered">
     <div class="column is-half">
       <h2 id="results" class="level-item subtitle is-4 has-text-weight-semibold">Results:</h2>
-      <div id="result"></div>
+      {{#if result}}
+        <div id="result">{{result}}</div>
+        <button class="button is-primary">Login or Create an Account to save your results!</button>
+      {{else}}
+        <div id="result">No search results.</div>
+      {{/if}}
     </div>
   </div>
 </div>

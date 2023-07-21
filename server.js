@@ -2,9 +2,12 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
+const homeRoutes = require('./controllers/homeRoutes');
+const userRoutes = require('./controllers/userRoutes');
+const searchRoutes = require('./controllers/searchRoutes');
+const profileRoutes = require('./controllers/profileRoutes');
 
 
 const sequelize = require('./config/connection');
@@ -43,7 +46,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(routes);
+app.use('/', homeRoutes);
+app.use('/profile',profileRoutes);
+app.use('/users',userRoutes);
+app.use('/search', searchRoutes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));

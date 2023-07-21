@@ -1,13 +1,19 @@
-// profile.js
 
-// Wait for the DOM to be fully loaded before attaching event listeners
+
+
+function handleBackToSearchClick() {
+  // Redirect the user to the search page
+  window.location.href = '/search'; 
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
   // Get references to the DOM elements we need
   const newProjectForm = document.querySelector(".new-project-form");
   const projectList = document.querySelector(".panel-block");
   const deleteButtons = document.querySelectorAll(".button.is-danger");
 
-  // Function to handle form submission for creating a new project
+ 
   function handleNewProjectFormSubmit(event) {
     event.preventDefault();
 
@@ -24,9 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Attach the form submission event listener
-  newProjectForm.addEventListener("submit", handleNewProjectFormSubmit);
+  // newProjectForm.addEventListener("submit", handleNewProjectFormSubmit);
 
-  // Function to handle project deletion
+
   function handleProjectDeletion(event) {
     // Get the project ID from the data attribute
     const projectId = event.target.dataset.id;
@@ -34,12 +40,26 @@ document.addEventListener("DOMContentLoaded", function () {
     // Do something with the project ID (e.g., send a request to delete the project)
     // ...
 
-    // Remove the project from the UI
+  
     event.target.closest(".columns.mb-2").remove();
   }
 
-  // Attach click event listeners to each delete button
+
   deleteButtons.forEach((button) =>
     button.addEventListener("click", handleProjectDeletion)
   );
+
+  // Create the "Back to Search" button element
+  const backButton = document.createElement('button');
+  backButton.textContent = 'Back to Search';
+  backButton.classList.add('button', 'is-primary', 'is-outlined', 'mt-2');
+
+  // Attach the click event listener to the "Back to Search" button
+  backButton.addEventListener('click', handleBackToSearchClick);
+  projectList.appendChild(backButton);
+
+  
+
+
 });
+
