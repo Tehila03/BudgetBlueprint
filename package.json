@@ -10,19 +10,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tehila03/project-2.git"
+    "url": "git+https://github.com/KimTurboutique/BudgetBlueprint.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Tehila03/project-2/issues"
+    "url": "https://github.com/KimTurboutique/BudgetBlueprint/issues"
   },
-  "homepage": "https://github.com/Tehila03/project-2#readme",
+  "homepage": "https://github.com/KimTurboutique/BudgetBlueprint#readme",
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
     "bcrypt": "^5.0.0",
     "bulma": "^0.9.4",
+    "chart.js": "^4.3.0",
     "connect-session-sequelize": "^7.0.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
